@@ -10,7 +10,7 @@ public class StringUtility {
 
         }else{
 
-            System.out.println("FAİL");
+            System.out.println("FAIL");
             System.out.println("expected = " + expected);
             System.out.println("actual = " + actual);
         }
