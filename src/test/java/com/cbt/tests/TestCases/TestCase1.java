@@ -1,11 +1,9 @@
-package com.cbt.tests.TestCase1;
+package com.cbt.tests.TestCases;
 
 import com.cbt.utilities.BrowserFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.sql.SQLOutput;
 
 public class TestCase1 {
 
