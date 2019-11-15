@@ -24,15 +24,15 @@ public class VytrackTestPositive {
 
         driver.get("https://qa1.vytrack.com/user/login");
 
-        WebElement usernameBox = driver.findElement(By.id("prependedInput"));
+        WebElement usernameBox = driver.findElement(By.xpath("//*[@id='prependedInput']"));
 
         usernameBox.sendKeys("user24");
 
-        WebElement passwordBox = driver.findElement(By.id("prependedInput2"));
+        WebElement passwordBox = driver.findElement(By.cssSelector("[id='prependedInput2']"));
 
         passwordBox.sendKeys("UserUser123");
 
-        WebElement loginButton = driver.findElement(By.id("_submit"));
+        WebElement loginButton = driver.findElement(By.xpath("//button[(text()='Log in')]"));
 
         loginButton.click();
 
