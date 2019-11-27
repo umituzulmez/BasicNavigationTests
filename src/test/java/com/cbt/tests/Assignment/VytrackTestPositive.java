@@ -28,7 +28,7 @@ public class VytrackTestPositive {
 
         usernameBox.sendKeys("user24");
 
-        WebElement passwordBox = driver.findElement(By.cssSelector("[id='prependedInput2']"));
+        WebElement passwordBox = driver.findElement(By.cssSelector("#prependedInput2"));
 
         passwordBox.sendKeys("UserUser123");
 
