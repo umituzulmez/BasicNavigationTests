@@ -58,10 +58,10 @@ public class TestCase_6 {
 
         driver.get("https://www.tempmailaddress.com/");
 
-        WebElement mailBox = driver.findElement(By.xpath("/html/body/div/div[5]/div[1]/table/tbody/tr[3]/td[1]/span[2]"));
+        WebElement mailBox = driver.findElement(By.xpath("//*[contains(text(),'do-not-reply@practice.cybertekschool.com')] [@class='odMobil']"));
         mailBox.click(); // cannot click*********
 
-        WebElement checkEmail = driver.findElement(By.id("odesilatel"));
+        /*WebElement checkEmail = driver.findElement(By.id("odesilatel"));
         String gotEmail = checkEmail.getText();
         System.out.println("gotEmail = " + gotEmail);
 
@@ -69,6 +69,6 @@ public class TestCase_6 {
 
         Thread.sleep(2000);
         driver.quit();
-
+*/
     }
 }
