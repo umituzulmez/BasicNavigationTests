@@ -58,17 +58,26 @@ public class TestCase_6 {
 
         driver.get("https://www.tempmailaddress.com/");
 
-        WebElement mailBox = driver.findElement(By.xpath("//*[contains(text(),'do-not-reply@practice.cybertekschool.com')] [@class='odMobil']"));
-        mailBox.click(); // cannot click*********
+        WebElement mailBox = driver.findElement(By.xpath("//tbody[@id='schranka']/tr"));
+        String myEmail = mailBox.getText();
 
-        /*WebElement checkEmail = driver.findElement(By.id("odesilatel"));
+        Assert.assertTrue(myEmail.contains("do-not-reply@practice.cybertekschool.com"),"Verify I have got email");
+
+        mailBox.click();
+
+        WebElement checkEmail = driver.findElement(By.id("odesilatel"));
         String gotEmail = checkEmail.getText();
         System.out.println("gotEmail = " + gotEmail);
 
         Assert.assertEquals(gotEmail,"do-not-reply@practice.cybertekschool.com","Verify I got email from Cybertek");
 
+        WebElement mailSubject = driver.findElement(By.cssSelector("#predmet"));
+        String subjectText = mailSubject.getText();
+
+        Assert.assertEquals(subjectText,"Thanks for subscribing to practice.cybertekschool.com!","Verify mail subject is true");
+
         Thread.sleep(2000);
         driver.quit();
-*/
+
     }
 }
