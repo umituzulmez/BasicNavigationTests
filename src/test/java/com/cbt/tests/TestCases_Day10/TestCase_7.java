@@ -28,8 +28,7 @@ public class TestCase_7 {
             fileUploadLink.click();
 
             WebElement chooseFileButton = driver.findElement(By.id("file-upload"));
-            chooseFileButton.click();
-            chooseFileButton.sendKeys("/Users/o/Documents/CyberTek/Course\\ Slides/Test\\ Automation/day 1 Class notes .txt");
+            chooseFileButton.sendKeys("/Users/o/Desktop/file.txt");
             //could not upload file********
 
             WebElement uploadButton = driver.findElement(By.id("file-submit"));
