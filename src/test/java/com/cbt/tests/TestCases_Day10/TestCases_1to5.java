@@ -67,13 +67,13 @@ public class TestCases_1to5 {
         WebElement registrationFormLink = driver.findElement(By.linkText("Registration Form"));
         registrationFormLink.click();
 
-        List<WebElement> prgLanguages = driver.findElements(By.className("form-check-input"));
+        List<WebElement> prgLanguages = driver.findElements(By.cssSelector(".form-check.form-check-inline"));
         System.out.println("Element number of prgLanguages = " + prgLanguages.size());
 
         Assert.assertEquals(prgLanguages.size(),3,"Verify we have 3 elements");
 
         for(WebElement elements : prgLanguages){
-            System.out.println(elements.getText()); // why it does not get text of elements?
+            System.out.println(elements.getText());
         }
     }
 
