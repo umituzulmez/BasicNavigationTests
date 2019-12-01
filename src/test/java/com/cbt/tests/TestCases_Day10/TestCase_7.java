@@ -29,7 +29,6 @@ public class TestCase_7 {
 
             WebElement chooseFileButton = driver.findElement(By.id("file-upload"));
             chooseFileButton.sendKeys("/Users/o/Desktop/file.txt");
-            //could not upload file********
 
             WebElement uploadButton = driver.findElement(By.id("file-submit"));
             uploadButton.click();
