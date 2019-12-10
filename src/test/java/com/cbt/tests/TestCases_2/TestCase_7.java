@@ -1,4 +1,4 @@
-package com.cbt.tests.TestCases_Day10;
+package com.cbt.tests.TestCases_2;
 
 import com.cbt.utilities.BrowserFactory;
 import org.openqa.selenium.By;
