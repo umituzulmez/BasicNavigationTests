@@ -4,6 +4,7 @@ import com.cbt.utilities.BrowserFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -151,6 +152,40 @@ public class TestCases_1to6 {
         int Rows = rows.size();
 
         Assert.assertEquals(Records,Rows,"verify the numbers of records and rows are equal");
+
+    }
+
+    @Test
+    public void testCase5() throws InterruptedException {
+        /*
+        1. Go to “https://qa1.vytrack.com/"
+        2. Login as a store manager
+        3. Navigate to “Activities -> Calendar Events”
+        4. Click on the top checkbox to select all
+        5. Verify that all calendar events were selected
+         */
+
+        WebElement checkBox = driver.findElement(By.xpath("(//input[@type='checkbox'])[14]"));
+
+        Actions action = new Actions(driver);
+        action.moveToElement(checkBox).click().perform();
+
+        List<WebElement> allCheckBoxes = driver.findElements(By.xpath("//table[@class='grid table-hover table table-bordered table-condensed']/tbody/tr"));
+
+        int counter = 0;
+        for (WebElement allCheckBox : allCheckBoxes) {
+
+            allCheckBox.getAttribute("class").contains("row-selected");
+
+            counter++;
+        }
+
+        Assert.assertEquals(counter,allCheckBoxes.size(),"verify all check boxes are selected");
+    }
+
+    @Test
+    public void testCase6(){
+
 
     }
 
