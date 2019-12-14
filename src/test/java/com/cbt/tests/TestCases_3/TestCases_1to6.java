@@ -2,6 +2,7 @@ package com.cbt.tests.TestCases_3;
 
 import com.cbt.utilities.BrowserFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -25,7 +26,7 @@ public class TestCases_1to6 {
     public void setUpMethod(){
         driver = BrowserFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://qa1.vytrack.com/");
 
         WebElement usernameInputBox = driver.findElement(By.name("_username"));
@@ -41,7 +42,8 @@ public class TestCases_1to6 {
 
         WebElement calendarEventsButton = driver.findElement(By.xpath("//a[@href='/calendar/event']/span"));
 
-        WebDriverWait wait = new WebDriverWait(driver,20);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='title title-level-1'])[1]")));
         wait.until(ExpectedConditions.visibilityOf(activitiesButton));
 
         Actions actions = new Actions(driver);
@@ -184,7 +186,30 @@ public class TestCases_1to6 {
     }
 
     @Test
-    public void testCase6(){
+    public void testCase6() throws InterruptedException {
+        /*
+        1. Go to “https://qa1.vytrack.com/"
+        2. Login as a store manager
+        3. Navigate to “Activities -> Calendar Events”
+        4. Select “Testers meeting”
+        5. Verify that following data is displayed:
+         */
+
+        WebElement testersMeeting = driver.findElement(By.xpath("//div[@class='grid-container']//tbody//tr//td[contains(text(),'Testers Meeting')]"));
+        testersMeeting.click();
+
+        //JavascriptExecutor jse = (JavascriptExecutor) driver;
+        //jse.executeScript("arguments[0].click();",testersMeeting);
+
+        //Actions actions = new Actions(driver);
+        //actions.moveToElement(testersMeeting).click(testersMeeting).build().perform();
+
+        WebElement info = driver.findElement(By.xpath("//div[contains(text(),'Testers Meeting')]"));
+        System.out.println("info = " + info.getText());
+        String actual = info.getText();
+        String expected = "Testers Meeting";
+
+        Assert.assertEquals(actual,expected,"verify info is correct");
 
 
     }
